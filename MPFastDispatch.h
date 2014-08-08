@@ -39,8 +39,8 @@
     static dispatch_once_t onceToken;   \
     dispatch_once(&onceToken, BLOCK);
 
-#define main(BLOCK)                                 \
-    autoreleasepool {}                              \
+#define mainqueue(BLOCK)                                 \
+    autoreleasepool {}                                   \
     dispatch_async(dispatch_get_main_queue(),BLOCK);
 
 #endif

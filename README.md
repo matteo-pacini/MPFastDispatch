@@ -30,7 +30,7 @@ To dispatch a block on the main queue, you would do...
 
 With **MPFastDispatch** you can do:
 
-    @main(^{
+    @mainqueue(^{
         CODE
     })
 

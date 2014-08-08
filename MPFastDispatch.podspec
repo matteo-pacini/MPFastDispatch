@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
 
   s.name         = "MPFastDispatch"
-  s.version      = "0.1.0"
+  s.version      = "0.1.1"
   s.summary      = "Useful GCD shorthands"
 
   s.description  = <<-DESC
