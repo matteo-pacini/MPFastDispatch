@@ -6,7 +6,7 @@ MPFastDispatch is a collection of helper macros for GCD.
 
 Add this into your Podfile:
 
-    pod 'MPFastDispatch', '~> 0.1.0'
+    pod 'MPFastDispatch'
 
 Import the class in your prefix:
 
