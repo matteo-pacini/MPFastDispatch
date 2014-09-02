@@ -37,7 +37,7 @@ With **MPFastDispatch** you can do:
 
 ##Dispatch a block asynchronously on the global background queue
 
-To dispatch a block on the main queue, you would do...
+To dispatch a block on the background  queue, you would do...
 
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND,0), ^{
         CODE
