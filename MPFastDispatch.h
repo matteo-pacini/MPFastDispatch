@@ -42,5 +42,9 @@
 #define mainqueue(BLOCK)                                 \
     autoreleasepool {}                                   \
     dispatch_async(dispatch_get_main_queue(),BLOCK);
+    
+#define backgroundqueue(BLOCK)                                                              \
+    autoreleasepool {}                                                                      \
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND,0),BLOCK);  \
 
 #endif

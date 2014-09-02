@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.6'
 
   s.name         = "MPFastDispatch"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "Useful GCD shorthands"
 
   s.description  = <<-DESC
@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.author             = { "Matteo Pacini" => "ispeakprogramming@gmail.com" }
   s.social_media_url   = "http://twitter.com/Zi0P4tch0"
   
-  s.source       = { :git => "https://github.com/Zi0P4tch0/MPFastDispatch.git", :tag => "0.1.1" }
+  s.source       = { :git => "https://github.com/Zi0P4tch0/MPFastDispatch.git", :tag => "0.1.2" }
   s.source_files  = "*.{h,m}"
   s.requires_arc = true
   s.framework = 'Foundation'

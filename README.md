@@ -16,7 +16,8 @@ Import the class in your prefix:
 
     @once(BLOCK) //"dispatch_once" shorthand
     @after(SECONDS,BLOCK)  //"dispatch_after" shorthand
-    @main(BLOCK)  //Executes a block on the main queue
+    @mainqueue(BLOCK)  //Executes a block on the main queue
+    @backgroundqueue(BLOCK) // Executes a block on the global background queue
 
 #Comparison
 
@@ -31,6 +32,20 @@ To dispatch a block on the main queue, you would do...
 With **MPFastDispatch** you can do:
 
     @mainqueue(^{
+        CODE
+    })
+
+##Dispatch a block asynchronously on the global background queue
+
+To dispatch a block on the main queue, you would do...
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND,0), ^{
+        CODE
+    });
+
+With **MPFastDispatch** you can do:
+
+    @backgroundqueue(^{
         CODE
     })
 
