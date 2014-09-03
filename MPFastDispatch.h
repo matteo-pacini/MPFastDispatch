@@ -32,7 +32,7 @@
     dispatch_after(                         \
         dispatch_time(DISPATCH_TIME_NOW,    \
         (int64_t)(SECONDS * NSEC_PER_SEC)), \
-        dispatch_get_main_queue(), BLOCK)
+        dispatch_get_main_queue(), BLOCK);
 
 #define once(BLOCK)                     \
     autoreleasepool {}                  \
@@ -46,5 +46,18 @@
 #define backgroundqueue(BLOCK)                                                              \
     autoreleasepool {}                                                                      \
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND,0),BLOCK);  \
+        
+#define sem(TAG, VAL)                         \
+    autoreleasepool {}                        \
+    __block dispatch_semaphore_t __sem##TAG = \
+        dispatch_semaphore_create(VAL);       \
+
+#define sem_wait(TAG, TIMEOUT)                     \
+    autoreleasepool {}                             \
+    dispatch_semaphore_wait(__sem##TAG, TIMEOUT);  \
+
+#define sem_signal(TAG)                     \
+    autoreleasepool {}                      \
+    dispatch_semaphore_signal(__sem##TAG);  \
 
 #endif

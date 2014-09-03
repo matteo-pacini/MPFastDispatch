@@ -18,6 +18,10 @@ Import the class in your prefix:
     @after(SECONDS,BLOCK)  //"dispatch_after" shorthand
     @mainqueue(BLOCK)  //Executes a block on the main queue
     @backgroundqueue(BLOCK) // Executes a block on the global background queue
+    
+    @sem(TAG,VAL)  //Creates a semaphore named "__sem##TAG" with value "VAL"
+    @sem_signal(TAG) //Increments value of semaphore named "__sem##TAG"
+    @sem_wait(TAG, TIMEOUT) //Decrements value of semaphore named "__sem##TAG" using timeout "TIMEOUT"
 
 #Comparison
 
@@ -80,6 +84,21 @@ With **MPFastDispatch** you can do:
     @after(SECONDS,^{
         CODE
     })
+
+##Semaphore shorthands usage
+
+    @backgroundqueue(^{
+        
+        @sem(One, 0)
+        @after(5.0f, ^{
+            @sem_signal(One)
+        });
+        @sem_wait(One, DISPATCH_TIME_FOREVER)
+        
+        NSLog(@"The end");
+        
+    });
+
 
 #Swift
 
