@@ -16,8 +16,9 @@ Import the class in your prefix:
 
     @once(BLOCK) //"dispatch_once" shorthand
     @after(SECONDS,BLOCK)  //"dispatch_after" shorthand
-    @mainqueue(BLOCK)  //Executes a block on the main queue
+    @mainqueue(BLOCK)  //Executes a block asynchronously on the main queue
     @backgroundqueue(BLOCK) // Executes a block on the global background queue
+    @mainthread(BLOCK)  //Executes a block on the main thread
     
     @sem(TAG,VAL)  //Creates a semaphore named "__sem##TAG" with value "VAL"
     @sem_signal(TAG) //Increments value of semaphore named "__sem##TAG"
@@ -50,6 +51,24 @@ To dispatch a block on the background  queue, you would do...
 With **MPFastDispatch** you can do:
 
     @backgroundqueue(^{
+        CODE
+    })
+
+##Excute a block on the main thread
+
+To excute a block on the main thread, you would do...
+
+    if ([NSThread isMainThread]) {
+        CODE
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            CODE
+        });
+    }
+
+With **MPFastDispatch** you can do:
+
+    @mainthread(^{
         CODE
     })
 
