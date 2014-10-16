@@ -47,6 +47,11 @@
     autoreleasepool {}                                                                      \
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND,0),BLOCK);  \
         
+#define mainthread(BLOCK)                                 \
+    autoreleasepool {}                                    \
+    if ([NSThread isMainThread]) BLOCK();                 \
+    else dispatch_async(dispatch_get_main_queue(),BLOCK); \
+
 #define sem(TAG, VAL)                         \
     autoreleasepool {}                        \
     __block dispatch_semaphore_t __sem##TAG = \
